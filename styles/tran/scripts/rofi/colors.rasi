@@ -1,0 +1,15 @@
+/* colors */
+
+* {
+    border: 2px;  
+    margin: 0;  
+    padding: 2px;  
+    spacing: 0;
+
+    bg: #282a36;  
+    fg: #f8f8f2;  
+    blue: #6272a4;  
+    purple: #bd93f9;
+    background-color: @bg;  
+    text-color: @fg;
+}
