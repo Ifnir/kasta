@@ -12,7 +12,7 @@ install_fonts()
 {
     echo -e "\n[*] Installing fonts..."
     if [[ -d "$FONTDIR" ]]; then
-	cp -rf $FONTDIR/fonts/* "$FONTDIR"
+	cp -rf $DIR/fonts/* "$FONTDIR"
     else
 	mkdir -p "$FONTDIR"
 	cp -rf $DIR/fonts/* "$FONTDIR"

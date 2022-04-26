@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+1#!/usr/bin/env bash
 
 DIR="$HOME/.config/polybar"
 themes=(`ls --hide="launch.sh"`)
@@ -18,7 +18,7 @@ case $1 in
   --tran)
     echo -e "Executing tran style..."
     style="tran"
-    #launch_bar
+    launch_bar
   ;;
   *)
     clear
