@@ -60,7 +60,7 @@ EOF
 	install_theme
     elif [[ $REPLY == "2" ]]; then
 	echo -e "Exiting the install wizard..."
-	exit 0
+	exit 1
     else
 	echo -e "\n[!] Invalid Option.\n[!] Exiting...\n"
 	exit 1
