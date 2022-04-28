@@ -86,19 +86,21 @@ mainbox {
 }
 
 element {
-    background-color:               @al;
-    text-color:                     @fga;
+    background-color:               @bg;
+    text-color:                     @fg;
     orientation:                    horizontal;
     border-radius:                  0px;
 	padding: 						3px 3px 3px -12px;
 }
 
 element-icon {
+    background-color:               inherit;
     size:                           24px;
     border:                         0px;
 }
 
 element-text {
+    background-color:               inherit;
     expand:                         true;
     horizontal-align:               0;
     vertical-align:                 0.5;
@@ -107,8 +109,8 @@ element-text {
 
 element selected {
     background-color:               @blue;
-    text-color:                     @fga;
+    text-color:                     @fg;
 	border:							0px 0px 0px 0px;
     border-radius:                  0px;
-    border-color:                  	@ac;
+    border-color:                  	@purple;
 }

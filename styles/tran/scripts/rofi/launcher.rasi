@@ -30,13 +30,13 @@ window {
 prompt {
     	enabled: 			true;
 	padding: 			6px 7px 4px 7px;
-	background-color: 		@ac;
+	background-color: 		@bg;
 	text-color: 			@fg;
 	font:				"feather 12";
 }
 
 entry {
-    	background-color:               @al;
+    	background-color:               @bg;
     	text-color:                     @fg;
     	placeholder-color:              @fg;
     	expand:                         true;
@@ -48,7 +48,7 @@ entry {
 
 inputbar {
 	children: 			[ prompt, entry ];
-    	background-color:               @bga;
+    	background-color:               @bg;
     	text-color:                     @fg;
     	expand:                         false;
 	border:				0px;
@@ -70,7 +70,7 @@ listview {
 }
 
 mainbox {
-    	background-color:               @al;
+    	background-color:               @bg;
 	border:				0px;
     	border-radius:                  0px;
 	border-color:			@ac;
@@ -81,29 +81,31 @@ mainbox {
 
 element {
 	children:			[element-icon, element-text];
-    	background-color:               @al;
-    	text-color:                     @fga;
+    	background-color:               @bg;
+    	text-color:                     @fg;
     	orientation:                    horizontal;
     	border-radius:                  0px;
 	padding: 			3px;
 }
 
 element-icon {
-    	size:                           24px;
-    	border:                         0px;
+    background-color:               inherit;
+    size:                           24px;
+    border:                         0px;
 }
 
 element-text {
-    	expand:                         true;
-    	horizontal-align:               0;
-    	vertical-align:                 0.5;
-    	margin:                         0px 2.5px 0px 2.5px;
+    background-color:               inherit;
+    expand:                         true;
+    horizontal-align:               0;
+    vertical-align:                 0.5;
+    margin:                         0px 2.5px 0px 2.5px;
 }
 
 element selected {
     	background-color:               @blue;
-    	text-color:                     @fga;
+    	text-color:                     @fg;
 	border:				0px 0px 0px 0px;
     	border-radius:                  0px;
-    	border-color:                  	@ac;
+    	border-color:                  	@purple;
 }
