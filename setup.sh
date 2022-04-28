@@ -25,7 +25,7 @@ install_theme()
 {
     if [[ -d "$POLYDIR" ]]; then
 	echo -e "[*] Creating a backup of your polybar configs..."
-	mv "$POLYBAR" "${POLYDIR}.old"
+	mv "${POLYBAR}"/* "${POLYDIR}.old"
 	{ mkdir -p "$POLYDIR"; cp -rf $DIR/$STYLEDIR/* "$POLYDIR"; }
     else
 	{ mkdir -p "$POLYDIR"; cp -rf $DIR/$STYLEDIR/* "$POLYDIR"; }

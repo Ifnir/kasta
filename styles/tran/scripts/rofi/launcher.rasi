@@ -12,7 +12,6 @@ configuration
 }
 
 @import "colors.rasi"
-@theme "/dev/null"
 
 window {
     	transparency:                   "real";
