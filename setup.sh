@@ -6,6 +6,7 @@
 DIR=`pwd`
 FONTDIR="$HOME/.local/share/fonts"
 POLYDIR="$HOME/.config/polybar"
+DUNSTDIR="$HOME/.config/dunst"
 
 # font
 install_fonts()
@@ -40,11 +41,38 @@ install_theme()
     fi
 }
 
+install_dunst() 
+{
+    if [[ -d "$DUNSTDIR" ]]; then
+    echo -e "[*] Creating a backup of your dunst config..."
+    mv "${DUNSTDIR}"/* "${DUNSTDIR}.old"
+    { mkdir -p "$DUNSTDIR"; cp -rf $DIR/dunst/* "$DUNSTDIR"; }
+    else
+    { mkdir -p "$DUNSTDIR"; cp -rf $DIR/dunst/* "$DUNSTDIR"; }
+    fi
+
+    if [[ -f "$DUNSTDIR/dunstrc" ]]; then
+    echo -e "[*] Successfully installed...\n"
+    else
+    echo -e "[!] Failed to install... \n"
+    fi
+}
+
+install_xresources() 
+{
+    if [[ -d "$HOME/.config/.Xresources" ]]; then
+    cp $DIR/.Xresources "$HOME/.config/.Xresources"
+    echo -e "[*] Installed Xresources...\n"
+    else
+    echo -e "[!] Failled to install... \n"
+    fi
+}
+
 interface()
 {
     clear
     cat <<-EOF
-    [*] Install Polybar Theme...
+    [*] Install Rice...
     
     [*] Choose -
     [1] Install
@@ -58,6 +86,8 @@ EOF
 	STYLEDIR='styles'
 	install_fonts
 	install_theme
+    install_dunst
+    install_xresources
     elif [[ $REPLY == "2" ]]; then
 	echo -e "Exiting the install wizard..."
 	exit 1
