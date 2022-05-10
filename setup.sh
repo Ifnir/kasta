@@ -54,7 +54,7 @@ install_dunst()
 
 install_xresources() 
 {
-    cp $DIR/.Xresources "$HOME/.config/.Xresources
+    cp $DIR/.Xresources "$HOME/.config/.Xresources"
 
     if [[ -f "$HOME/.config/.Xresources" ]]; then
     echo -e "[*] Installed Xresources...\n"
@@ -66,16 +66,15 @@ install_xresources()
 interface()
 {
     clear
-    cat <<-EOF
-    [*] Install Rice...
-    
-    [*] Choose -
-    [1] Install Polybar
-    [2] Install Dunst
-    [3] Install Xresources
-    [4] Exit
-EOF
-    
+
+echo -e   " [*] Install Rice..."
+echo -e  "  [*] Choose -"
+echo -e "[1] Install Polybar"
+echo -e  "[2] Install Dunst"
+echo -e "[3] Install Xresources"
+echo -e "[4] Exit"
+
+
     read -p "[?] Select Option : "
 
     if [[ $REPLY == "1" ]]; then
@@ -93,7 +92,6 @@ EOF
 	echo -e "Exiting the install wizard..."
 	exit 1
     else
-	echo -e "\n[!] Invalid Option.\n[!] Exiting...\n"
 	exit 1
     fi
 }
