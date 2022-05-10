@@ -25,7 +25,8 @@ install_fonts()
 install_theme()
 {
     if [[ -d "$POLYDIR" ]]; then
-	echo -e "[*] Copy polybar config..."
+	echo -e "[*] Creating a backup of your polybar configs..."
+	mv "${POLYBAR}"/* "${POLYDIR}.old"
 	{ mkdir -p "$POLYDIR"; cp -rf $DIR/$STYLEDIR/* "$POLYDIR"; }
     else
 	{ mkdir -p "$POLYDIR"; cp -rf $DIR/$STYLEDIR/* "$POLYDIR"; }
@@ -42,8 +43,13 @@ install_theme()
 
 install_dunst() 
 {
-    echo -e "[*] Copying dunst config..."
+    if [[ -d "$DUNSTDIR" ]]; then
+    echo -e "[*] Creating a backup of your dunst config..."
+    mv "${DUNSTDIR}"/* "${DUNSTDIR}.old"
     { mkdir -p "$DUNSTDIR"; cp -rf $DIR/dunst/* "$DUNSTDIR"; }
+    else
+    { mkdir -p "$DUNSTDIR"; cp -rf $DIR/dunst/* "$DUNSTDIR"; }
+    fi
 
     if [[ -f "$DUNSTDIR/dunstrc" ]]; then
     echo -e "[*] Successfully installed...\n"
@@ -74,7 +80,6 @@ echo -e  "[2] Install Dunst"
 echo -e "[3] Install Xresources"
 echo -e "[4] Exit"
 
-
     read -p "[?] Select Option : "
 
     if [[ $REPLY == "1" ]]; then
@@ -82,13 +87,9 @@ echo -e "[4] Exit"
 	STYLEDIR='styles'
 	install_fonts
 	install_theme
+    install_dunst
+    install_xresources
     elif [[ $REPLY == "2" ]]; then
-	echo -e "Install dunst..."
-	install_dunst
-    elif [[ $REPLY == "3" ]]; then
-	 echo -e "Install Xresources..."
-	 install_xresources
-    elif [[ $REPLY == "4" ]]; then
 	echo -e "Exiting the install wizard..."
 	exit 1
     else
