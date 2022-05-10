@@ -25,8 +25,7 @@ install_fonts()
 install_theme()
 {
     if [[ -d "$POLYDIR" ]]; then
-	echo -e "[*] Creating a backup of your polybar configs..."
-	mv "${POLYBAR}"/* "${POLYDIR}.old"
+	echo -e "[*] Copy polybar config..."
 	{ mkdir -p "$POLYDIR"; cp -rf $DIR/$STYLEDIR/* "$POLYDIR"; }
     else
 	{ mkdir -p "$POLYDIR"; cp -rf $DIR/$STYLEDIR/* "$POLYDIR"; }
@@ -43,13 +42,8 @@ install_theme()
 
 install_dunst() 
 {
-    if [[ -d "$DUNSTDIR" ]]; then
-    echo -e "[*] Creating a backup of your dunst config..."
-    mv "${DUNSTDIR}"/* "${DUNSTDIR}.old"
+    echo -e "[*] Copying dunst config..."
     { mkdir -p "$DUNSTDIR"; cp -rf $DIR/dunst/* "$DUNSTDIR"; }
-    else
-    { mkdir -p "$DUNSTDIR"; cp -rf $DIR/dunst/* "$DUNSTDIR"; }
-    fi
 
     if [[ -f "$DUNSTDIR/dunstrc" ]]; then
     echo -e "[*] Successfully installed...\n"
@@ -60,8 +54,9 @@ install_dunst()
 
 install_xresources() 
 {
-    if [[ -d "$HOME/.config/.Xresources" ]]; then
-    cp $DIR/.Xresources "$HOME/.config/.Xresources"
+    cp $DIR/.Xresources "$HOME/.config/.Xresources
+
+    if [[ -f "$HOME/.config/.Xresources" ]]; then
     echo -e "[*] Installed Xresources...\n"
     else
     echo -e "[!] Failled to install... \n"
@@ -75,8 +70,10 @@ interface()
     [*] Install Rice...
     
     [*] Choose -
-    [1] Install
-    [2] Exit
+    [1] Install Polybar
+    [2] Install Dunst
+    [3] Install Xresources
+    [4] Exit
 EOF
     
     read -p "[?] Select Option : "
@@ -86,9 +83,13 @@ EOF
 	STYLEDIR='styles'
 	install_fonts
 	install_theme
-    install_dunst
-    install_xresources
     elif [[ $REPLY == "2" ]]; then
+	echo -e "Install dunst..."
+	install_dunst
+    elif [[ $REPLY == "3" ]]; then
+	 echo -e "Install Xresources..."
+	 install_xresources
+    elif [[ $REPLY == "4" ]]; then
 	echo -e "Exiting the install wizard..."
 	exit 1
     else
