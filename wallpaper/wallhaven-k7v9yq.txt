@@ -1,0 +1,6 @@
+#color
+cc3333 - lightred
+000000 - black
+660000 - darkred
+990000 - medium darkred
+ff6600 - orange

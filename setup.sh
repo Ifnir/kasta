@@ -26,7 +26,7 @@ install_theme()
 {
     if [[ -d "$POLYDIR" ]]; then
 	echo -e "[*] Creating a backup of your polybar configs..."
-	mv "${POLYBAR}"/* "${POLYDIR}.old"
+	#mv "${POLYBAR}"/* "${POLYDIR}.old"
 	{ mkdir -p "$POLYDIR"; cp -rf $DIR/$STYLEDIR/* "$POLYDIR"; }
     else
 	{ mkdir -p "$POLYDIR"; cp -rf $DIR/$STYLEDIR/* "$POLYDIR"; }
@@ -41,11 +41,27 @@ install_theme()
     fi
 }
 
+install_i3()
+{
+    if [[ -d "" ]]; then
+        echo -e "[*] Copying i3 file..."
+        { mkdir -p ""; cp -rf $DIR/i3/* ""; }
+    else
+        { mkdir -p ""; cp -rf $DIR/i3/* ""; }
+    fi
+
+    if [[ -f "" ]]; then
+        echo -e "[*] Successfully installed... \n"
+    else
+        echo -e "[!] Failed to install... \n"
+    fi
+}
+
 install_dunst() 
 {
     if [[ -d "$DUNSTDIR" ]]; then
     echo -e "[*] Creating a backup of your dunst config..."
-    mv "${DUNSTDIR}"/* "${DUNSTDIR}.old"
+    #mv "${DUNSTDIR}"/* "${DUNSTDIR}.old"
     { mkdir -p "$DUNSTDIR"; cp -rf $DIR/dunst/* "$DUNSTDIR"; }
     else
     { mkdir -p "$DUNSTDIR"; cp -rf $DIR/dunst/* "$DUNSTDIR"; }
