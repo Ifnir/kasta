@@ -110,6 +110,7 @@ echo -e "[6] Exit"
         install_xresources
         install_i3
     elif [[ $REPLY == "5" ]]; then
+        STYLEDIR='styles'
         install_theme
         install_fonts
         exit 1
