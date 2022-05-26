@@ -95,8 +95,9 @@ echo -e  "  [*] Choose -"
 echo -e "[1] Install All"
 echo -e  "[2] Install Dunst"
 echo -e "[3] Install Xresources"
-echo -e "[4] Instal i3 config"
-echo -e "[5] Exit"
+echo -e "[4] Install i3 config"
+echo -e "[5] Install theme"
+echo -e "[6] Exit"
 
     read -p "[?] Select Option : "
 
@@ -108,10 +109,14 @@ echo -e "[5] Exit"
         install_dunst
         install_xresources
         install_i3
+    elif [[ $REPLY == "5" ]]; then
+        install_theme
+        install_fonts
+        exit 1
     elif [[ $REPLY == "4" ]]; then
         install_i3
         exit 1
-    elif [[ $REPLY == "5" ]]; then
+    elif [[ $REPLY == "6" ]]; then
 	echo -e "Exiting the install wizard..."
 	exit 1
     else
