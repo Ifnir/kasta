@@ -7,6 +7,7 @@ DIR=`pwd`
 FONTDIR="$HOME/.local/share/fonts"
 POLYDIR="$HOME/.config/polybar"
 DUNSTDIR="$HOME/.config/dunst"
+I3DIR="$HOME/.config/i3"
 
 # font
 install_fonts()
@@ -43,14 +44,14 @@ install_theme()
 
 install_i3()
 {
-    if [[ -d "" ]]; then
+    if [[ -d "$I3DIR" ]]; then
         echo -e "[*] Copying i3 file..."
-        { mkdir -p ""; cp -rf $DIR/i3/* ""; }
+        { mkdir -p "$I3DIR"; cp -rf $DIR/i3/* "$I3DIR"; }
     else
-        { mkdir -p ""; cp -rf $DIR/i3/* ""; }
+        { mkdir -p "$I3DIR"; cp -rf $DIR/i3/* "$I3DIR"; }
     fi
 
-    if [[ -f "" ]]; then
+    if [[ -f "$I3DIR/config" ]]; then
         echo -e "[*] Successfully installed... \n"
     else
         echo -e "[!] Failed to install... \n"
@@ -91,10 +92,11 @@ interface()
 
 echo -e   " [*] Install Rice..."
 echo -e  "  [*] Choose -"
-echo -e "[1] Install Polybar"
+echo -e "[1] Install All"
 echo -e  "[2] Install Dunst"
 echo -e "[3] Install Xresources"
-echo -e "[4] Exit"
+echo -e "[4] Instal i3 config"
+echo -e "[5] Exit"
 
     read -p "[?] Select Option : "
 
@@ -103,9 +105,13 @@ echo -e "[4] Exit"
 	STYLEDIR='styles'
 	install_fonts
 	install_theme
-    install_dunst
-    install_xresources
-    elif [[ $REPLY == "2" ]]; then
+        install_dunst
+        install_xresources
+        install_i3
+    elif [[ $REPLY == "4" ]]; then
+        install_i3
+        exit 1
+    elif [[ $REPLY == "5" ]]; then
 	echo -e "Exiting the install wizard..."
 	exit 1
     else

@@ -38,7 +38,7 @@ exec_always --no-startup-id bash ~/.config/polybar/launch.sh --tran
 
 # Bind all executable scripts
 bindsym $mod+o exec ~/.config/polybar/tran/scripts/launcher.sh
-bindsym $mod+Shift+m ~/.config/polybar/tran/scripts/monitor-switch.sh
+bindsym $mod+Shift+m exec ~/.config/polybar/tran/scripts/monitor-switch.sh
 
 # GUI
 gaps inner 10
