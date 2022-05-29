@@ -44,6 +44,8 @@ bindsym $mod+Shift+m exec ~/.config/polybar/tran/scripts/monitor-switch.sh
 gaps inner 10
 gaps outer 10
 
+client.focused #555555 #555555 #ffffff #2e9ef4 #CC0000
+
 for_window [class="^.*"] border pixel 1
 
 # Use pactl to adjust volume in PulseAudio.
